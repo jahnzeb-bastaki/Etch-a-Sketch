@@ -2,6 +2,11 @@
   --pastelred: #c81919 ;
 }
 
+@font-face {
+  font-family: Rondo;
+  src: url();
+}
+
 *{
   margin: none;
 }
@@ -27,4 +32,7 @@ body{
 
 .grid-element{
   border: 2px dotted blue;
+}
+
+p{
 }
