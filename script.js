@@ -11,6 +11,8 @@ let mouseSelect = false;
 // Check if mouse is down on body or .container
 document.querySelector('html').addEventListener('mousedown', setMouseSelect);
 document.querySelector('html').addEventListener('mouseup', setMouseSelect);
+document.querySelector('body').addEventListener('mousedown', setMouseSelect);
+document.querySelector('body').addEventListener('mouseup', setMouseSelect);
 document.querySelector('.container').addEventListener('mousedown', setMouseSelect);
 document.querySelector('.container').addEventListener('mouseup', setMouseSelect);
 
@@ -76,14 +78,18 @@ function gridReload(){
 function setMode(e){
   let mode = e.target.getAttribute('id');
   if(mode != currentMode){
-    gridReload();
+    //gridReload();
   }
 
   
   if(mode == 'sketch'){
     currentMode = 'sketch';
+    sketch.classList.add('active');
+    rainbow.classList.remove('active');
   } else {
     currentMode = 'rainbow';
+    rainbow.classList.add('active');
+    sketch.classList.remove('active');
   }
 }
 
