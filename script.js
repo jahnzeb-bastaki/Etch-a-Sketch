@@ -1,4 +1,4 @@
-const DEFAULT_GRID_SIZE = 64;
+const DEFAULT_GRID_SIZE = 16;
 const DEFAULT_COLOR = '#36454F'
 const ERASE_COLOR = 'lightgrey';
 const DEFAULT_MODE = 0; // 1 is sketch mode, 0 is rainbow mode
@@ -6,8 +6,13 @@ const DEFAULT_MODE = 0; // 1 is sketch mode, 0 is rainbow mode
 let currentGridSize = DEFAULT_GRID_SIZE;
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
-let isDown = false;
+let mouseSelect = false;
 
+// Check if mouse is down on body or .container
+document.querySelector('body').addEventListener('mousedown', setMouseSelect);
+document.querySelector('body').addEventListener('mouseup', setMouseSelect);
+document.querySelector('.container').addEventListener('mousedown', setMouseSelect);
+document.querySelector('.container').addEventListener('mouseup', setMouseSelect);
 
 // Sets the grid of divs in the .container div
 function gridSetup(size){
@@ -30,14 +35,14 @@ function gridActive(event){
   // boolean value for when mouse goes down,
   // and for when mouse goes up
   if(event.type == 'mousedown'){
-    isDown = true;
+    mouseSelect = true;
   } else if(event.type == 'mouseup'){
-    isDown = false;
+    mouseSelect = false;
   }
 
   // If mouse is down and moving inside .container,
   // then grid is active and the user can sketch
-  if(isDown){
+  if(mouseSelect){
     if(currentMode){
       this.style.backgroundColor = DEFAULT_COLOR;
       console.log(currentMode);
@@ -50,6 +55,12 @@ function gridActive(event){
   }
 }
 
+function setMouseSelect(event){
+  if(event.type == 'mousedown')
+    mouseSelect = true;
+  if(event.type == 'mouseup')
+    mouseSelect = false;
+}
 
 window.onload = () => {
   gridSetup(DEFAULT_GRID_SIZE);
