@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: Rondo;
-  src: url();
+  src: url(./rondo.ttf);
 }
 
 *{
@@ -35,4 +35,5 @@ body{
 }
 
 p{
+  font-family: Rondo;
 }
