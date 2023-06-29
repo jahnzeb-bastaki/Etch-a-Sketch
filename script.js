@@ -1,7 +1,7 @@
 const DEFAULT_GRID_SIZE = 16;
 const DEFAULT_COLOR = '#36454F'
 const ERASE_COLOR = 'lightgrey';
-const DEFAULT_MODE = 1; // 1 is sketch mode, 0 is rainbow mode
+const DEFAULT_MODE = 'sketch';
 
 let currentGridSize = DEFAULT_GRID_SIZE;
 let currentColor = DEFAULT_COLOR;
@@ -9,8 +9,8 @@ let currentMode = DEFAULT_MODE;
 let mouseSelect = false;
 
 // Check if mouse is down on body or .container
-document.querySelector('body').addEventListener('mousedown', setMouseSelect);
-document.querySelector('body').addEventListener('mouseup', setMouseSelect);
+document.querySelector('html').addEventListener('mousedown', setMouseSelect);
+document.querySelector('html').addEventListener('mouseup', setMouseSelect);
 document.querySelector('.container').addEventListener('mousedown', setMouseSelect);
 document.querySelector('.container').addEventListener('mouseup', setMouseSelect);
 
@@ -43,7 +43,7 @@ function gridActive(event){
   // If mouse is down and moving inside .container,
   // then grid is active and the user can sketch
   if(mouseSelect){
-    if(currentMode){
+    if(currentMode == 'sketch'){
       this.style.backgroundColor = DEFAULT_COLOR;
       console.log(currentMode);
     } else {
@@ -75,11 +75,29 @@ function gridReload(){
   gridSetup(currentGridSize);
 }
 
+function setMode(e){
+  let mode = e.target.getAttribute('id');
+  if(mode != currentMode){
+    gridReload();
+  }
+
+  
+  if(mode == 'sketch'){
+    currentMode = 'sketch';
+  } else {
+    currentMode = 'rainbow';
+  }
+}
+
 // Control Elements
 let clear = document.getElementById('clear');
+let rainbow = document.getElementById('rainbow');
+let sketch = document.getElementById('sketch');
 
 // Button Functions
 clear.onclick = () => gridReload();
+rainbow.onclick = e => setMode(e);
+sketch.onclick = e => setMode(e);
 
 window.onload = () => {
   gridSetup(DEFAULT_GRID_SIZE);

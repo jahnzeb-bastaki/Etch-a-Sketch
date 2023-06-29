@@ -22,6 +22,9 @@ html{
 body{
   min-height: 100%;
   background-color: var(--pastelred);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .content{
@@ -29,6 +32,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 680px;
 }
 
 /* Header Styling*/
@@ -74,10 +78,31 @@ header p{
 /* Controls Styling*/
 .control{
   display: flex;
-  width: 75%;
+  width: 85%;
   justify-content: space-between;
-  margin: 2em;
+  margin: 1em;
+  align-items: flex-end;
+}
 
+.slidecontainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.slidecontainer p{
+  margin: 0.5em;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.5em;
+
+  background: linear-gradient(45deg, #ffc600, #ff6f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  color: goldenrod;
 }
 
 .slider {
