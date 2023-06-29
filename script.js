@@ -65,9 +65,7 @@ function setMouseSelect(event){
 
 function clearGrid(){
   let container = document.querySelector('.container');
-  for(let i = 0; i < currentGridSize * currentGridSize; i++){
-    container.removeChild(document.querySelector('.grid-element'));
-  }
+  container.innerHTML = '';
 }
 
 function gridReload(){
@@ -93,11 +91,18 @@ function setMode(e){
 let clear = document.getElementById('clear');
 let rainbow = document.getElementById('rainbow');
 let sketch = document.getElementById('sketch');
+let slider = document.getElementById('myRange');
+let range = document.getElementById('range');
 
 // Button Functions
 clear.onclick = () => gridReload();
 rainbow.onclick = e => setMode(e);
 sketch.onclick = e => setMode(e);
+slider.oninput = function() {
+  range.innerHTML = `${slider.value} x ${slider.value}`;
+  currentGridSize = slider.value;
+  gridReload();
+}
 
 window.onload = () => {
   gridSetup(DEFAULT_GRID_SIZE);
