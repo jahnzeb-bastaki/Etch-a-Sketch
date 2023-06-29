@@ -1,7 +1,7 @@
 const DEFAULT_GRID_SIZE = 16;
 const DEFAULT_COLOR = '#36454F'
 const ERASE_COLOR = 'lightgrey';
-const DEFAULT_MODE = 0; // 1 is sketch mode, 0 is rainbow mode
+const DEFAULT_MODE = 1; // 1 is sketch mode, 0 is rainbow mode
 
 let currentGridSize = DEFAULT_GRID_SIZE;
 let currentColor = DEFAULT_COLOR;
@@ -55,12 +55,31 @@ function gridActive(event){
   }
 }
 
+//controls how mouse functions outside of container
 function setMouseSelect(event){
   if(event.type == 'mousedown')
     mouseSelect = true;
   if(event.type == 'mouseup')
     mouseSelect = false;
 }
+
+function clearGrid(){
+  let container = document.querySelector('.container');
+  for(let i = 0; i < currentGridSize * currentGridSize; i++){
+    container.removeChild(document.querySelector('.grid-element'));
+  }
+}
+
+function gridReload(){
+  clearGrid();
+  gridSetup(currentGridSize);
+}
+
+// Control Elements
+let clear = document.getElementById('clear');
+
+// Button Functions
+clear.onclick = () => gridReload();
 
 window.onload = () => {
   gridSetup(DEFAULT_GRID_SIZE);
