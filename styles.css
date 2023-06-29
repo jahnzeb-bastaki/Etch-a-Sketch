@@ -67,6 +67,7 @@ header p{
 }
 
 
-.grid-element{
-  border: 2px dotted blue;
+.grid-element:hover{
+  border: 2px dashed blue;
+  background-color: #36454F;
 } 
