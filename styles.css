@@ -1,5 +1,6 @@
 :root{
-  --pastelred: #c81919 ;
+  --pastelred: #c81919;
+  --sketchcolor: #36454F; 
 }
 
 @font-face {
@@ -69,5 +70,4 @@ header p{
 
 .grid-element:hover{
   border: 2px dashed blue;
-  background-color: #36454F;
-} 
+}
