@@ -23,8 +23,9 @@ body{
   min-height: 100%;
   background-color: var(--pastelred);
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .content{
@@ -34,6 +35,7 @@ body{
   align-items: center;
   width: 680px;
 }
+
 
 /* Header Styling*/
 header{
@@ -169,4 +171,25 @@ header p{
   border-radius: 50%;
   background: #04AA6D;
   cursor: pointer;
+}
+
+/* Footer Styling*/
+
+footer{
+  padding: 2em;
+  font-family: Rondo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p{
+  font-size: 20px;
+  /* Create a linear gradient for the text */
+  background: linear-gradient(45deg, #ffc600, #ff6f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  color: goldenrod; 
 }
