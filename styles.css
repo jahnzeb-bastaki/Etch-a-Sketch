@@ -67,7 +67,46 @@ header p{
   background-color: lightgrey;
 }
 
-
 .grid-element:hover{
   border: 2px dashed blue;
+}
+
+/* Controls Styling*/
+.control{
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  margin: 2em;
+
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+  background: #143dc6;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
 }
