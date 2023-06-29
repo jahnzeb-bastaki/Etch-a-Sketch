@@ -10,4 +10,4 @@ function gridSetup(size){
   }
 }
 
-gridSetup(12);
+gridSetup(30);
